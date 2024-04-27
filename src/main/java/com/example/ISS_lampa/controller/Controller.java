@@ -1,6 +1,7 @@
 package com.example.ISS_lampa.controller;
 
 import com.example.ISS_lampa.entity.Astronaut;
+import com.example.ISS_lampa.entity.Rocket;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -22,5 +23,10 @@ public class Controller {
                 .firstName(fName)
                 .lastName(lName).build();
         return astronaut;
+    }
+    @GetMapping("/rocket")
+    public Rocket rocket(@RequestParam String name){
+        Rocket rocket = Rocket.builder().name(name).build();
+        return rocket;
     }
 }
