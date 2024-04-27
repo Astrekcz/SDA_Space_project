@@ -15,11 +15,7 @@ public class Controller {
 
         return "moja prva stranka";
     }
-   /*@GetMapping("/pridatastronauta")
-    public Astronaut newAstronaut(@RequestParam String firstName, @RequestParam String lastName){
-        Astronaut astronaut = new Astronaut(firstName,lastName);
-        return astronaut;
-    }*/
+
     @GetMapping("/asd")
     public Astronaut asd(@RequestParam String fName, @RequestParam String lName){
         Astronaut astronaut = Astronaut.builder()
