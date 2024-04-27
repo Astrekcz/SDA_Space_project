@@ -16,8 +16,6 @@ public class Rocket {
     @Generated
     private Integer id;
     private String name;
-    private Date startDay;
-    private Date expectedEndDate;
     private Integer minCrew;
 
     @Override
@@ -25,8 +23,6 @@ public class Rocket {
         return "Rocket{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", startDay=" + startDay +
-                ", expectedEndDate=" + expectedEndDate +
                 ", minCrew=" + minCrew +
                 '}';
     }
