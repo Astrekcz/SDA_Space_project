@@ -1,0 +1,3 @@
+1 rocketRepository dokoncit
+2 RocketService dokoncit
+3vytrvorit misiu kompletne
