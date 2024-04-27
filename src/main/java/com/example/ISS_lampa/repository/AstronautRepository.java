@@ -9,4 +9,5 @@ import java.util.UUID;
 @Repository
 public interface AstronautRepository extends JpaRepository<Astronaut, UUID> {
     Astronaut findByFirstNameAndLastName(String firstName, String lastName);
+
 }

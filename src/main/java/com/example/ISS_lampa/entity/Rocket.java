@@ -2,15 +2,15 @@ package com.example.ISS_lampa.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
-import lombok.Data;
-import lombok.Generated;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.Date;
 
 @Data
 @Entity
 @NoArgsConstructor
+@AllArgsConstructor
+@Builder
 public class Rocket {
     @Id
     @Generated
@@ -20,5 +20,14 @@ public class Rocket {
     private Date expectedEndDate;
     private Integer minCrew;
 
-
+    @Override
+    public String toString() {
+        return "Rocket{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", startDay=" + startDay +
+                ", expectedEndDate=" + expectedEndDate +
+                ", minCrew=" + minCrew +
+                '}';
+    }
 }
