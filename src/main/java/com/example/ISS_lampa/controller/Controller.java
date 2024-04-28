@@ -3,6 +3,7 @@ package com.example.ISS_lampa.controller;
 import com.example.ISS_lampa.entity.Astronaut;
 import com.example.ISS_lampa.entity.Mission;
 import com.example.ISS_lampa.entity.Rocket;
+import com.example.ISS_lampa.repository.RocketRepository;
 import com.example.ISS_lampa.service.AstronautService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -77,7 +78,17 @@ public class Controller {
             Astronaut astronaut = Astronaut.builder().firstName(firstName).lastName(lastName).build();
             astronautList.add(astronaut);
 
+  //          Rocket rocket = RocketRepository.findRocketByName(craftName);
+/*
+            if (rocket == null) {
+                rocket = Rocket.builder()
+                        .name(craftName)
+                        .astronauts(new ArrayList<>())
+                        .build();
+            }*/
         }
+
+
         return astronautService.saveAstronauts(astronautList).toString();
     }
 }

@@ -11,6 +11,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RocketRepository extends JpaRepository<Rocket,Integer> {
-    Rocket findRocketByName(String name);
-
+     Rocket findRocketByName(String name) ;
 }
