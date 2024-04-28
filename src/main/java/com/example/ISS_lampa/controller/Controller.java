@@ -11,10 +11,19 @@ import java.util.UUID;
 @org.springframework.stereotype.Controller
 @RestController
 public class Controller {
-    @GetMapping("/stranka")
+    @GetMapping("/uvod")
     public String test (){
+        String vypis = """
+               úvodna stranka
+               skopiruj a vloz volbu z menu,bodky nahrad patricnym textom
+               pridat astronauta: localhost:8081/asd?fName=...&lName=...
+               """;
 
-        return "moja prva stranka";
+        String text = """
+            Prvý riadok 
+            Druhý riadok
+            """;
+        return text;
     }
 
     @GetMapping("/asd")
