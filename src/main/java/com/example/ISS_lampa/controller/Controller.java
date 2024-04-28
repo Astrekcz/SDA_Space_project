@@ -1,11 +1,16 @@
 package com.example.ISS_lampa.controller;
 
 import com.example.ISS_lampa.entity.Astronaut;
+import com.example.ISS_lampa.entity.Mission;
 import com.example.ISS_lampa.entity.Rocket;
+import jdk.jfr.Percentage;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.text.DateFormat;
+import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.UUID;
 
 @org.springframework.stereotype.Controller
@@ -29,4 +34,15 @@ public class Controller {
         Rocket rocket = Rocket.builder().name(name).build();
         return rocket;
     }
+    @GetMapping("/mission")
+    public <success> Mission mission(@RequestParam String name, @RequestParam String state, @RequestParam Date missionStartDate, @RequestParam Date missionEndDate, @RequestParam Boolean success){
+        Mission mission = Mission.builder()
+                .name(name)
+                .status(Boolean.valueOf(state))
+                .missionStartDate(missionStartDate)
+                .missionEndDate(missionEndDate)
+                .success(String.valueOf(success)).build();
+        return mission;
+    }
 }
+
