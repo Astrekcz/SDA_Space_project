@@ -20,8 +20,8 @@ public class Rocket {
     private String name;
     private Integer minCrew;
 
-    @OneToMany(mappedBy = "craft", cascade = CascadeType.ALL)
-    private List<Astronaut> astronauts;
+ //   @OneToMany(mappedBy = "craft", cascade = CascadeType.ALL)
+ //   private List<Astronaut> astronauts;
 
     @Override
     public String toString() {

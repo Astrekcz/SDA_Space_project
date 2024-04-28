@@ -12,8 +12,8 @@ import java.util.List;
 public class RocketService {
     private final RocketRepository rocketRepository;
 
-    public List<Rocket> saveRocket(List<Rocket> rockets){
-        return rocketRepository.saveAll(rockets);
+    public Rocket saveRocket(Rocket rockets){
+        return rocketRepository.save(rockets);
 
     }
 

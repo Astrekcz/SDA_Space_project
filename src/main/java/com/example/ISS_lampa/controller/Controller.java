@@ -5,6 +5,7 @@ import com.example.ISS_lampa.entity.Mission;
 import com.example.ISS_lampa.entity.Rocket;
 import com.example.ISS_lampa.repository.RocketRepository;
 import com.example.ISS_lampa.service.AstronautService;
+import com.example.ISS_lampa.service.RocketService;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -27,6 +28,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class Controller {
     private final AstronautService astronautService;
+    private final RocketService rocketService;
     @GetMapping("/stranka")
     public String test (){
 
@@ -67,6 +69,7 @@ public class Controller {
         JsonNode jsonNode = objectMapper.readTree(jsonResponse);
         JsonNode peopleNode = jsonNode.get("people");
         List<Astronaut> astronautList = new ArrayList<>();
+        List<Rocket> rocketList = new ArrayList<>();
         for (JsonNode astronautNode : peopleNode) {
             String name = astronautNode.get("name").asText();
             String craftName = astronautNode.get("craft").asText();
@@ -75,10 +78,14 @@ public class Controller {
             String firstName = nameParts[0];
             String lastName = nameParts[1];
 
+
+            Rocket rocket = Rocket.builder().name(craftName).id(1).minCrew(5).build();
+            rocketList.add(rocket);
+
             Astronaut astronaut = Astronaut.builder().firstName(firstName).lastName(lastName).build();
             astronautList.add(astronaut);
 
-  //          Rocket rocket = RocketRepository.findRocketByName(craftName);
+          //  Rocket rocket = RocketRepository.findRocketByName(craftName);
 /*
             if (rocket == null) {
                 rocket = Rocket.builder()
@@ -90,6 +97,7 @@ public class Controller {
 
 
         return astronautService.saveAstronauts(astronautList).toString();
+      //  return rocketService.saveRocket(rocketList).toString();
     }
 }
 
