@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.text.DateFormat;
+import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.UUID;
@@ -35,7 +36,7 @@ public class Controller {
         return rocket;
     }
     @GetMapping("/mission")
-    public <success> Mission mission(@RequestParam String name, @RequestParam String state, @RequestParam Date missionStartDate, @RequestParam Date missionEndDate, @RequestParam Boolean success){
+    public <success> Mission mission(@RequestParam String name, @RequestParam String state, @RequestParam LocalDate missionStartDate, @RequestParam LocalDate missionEndDate, @RequestParam Boolean success){
         Mission mission = Mission.builder()
                 .name(name)
                 .status(Boolean.valueOf(state))

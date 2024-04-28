@@ -4,6 +4,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import lombok.*;
 
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -15,8 +16,8 @@ public class Mission {
     @Id
     @Generated
     private String name;
-    private Date missionStartDate;
-    private Date missionEndDate;
+    private LocalDate missionStartDate;
+    private LocalDate missionEndDate;
     private String success;
     private Boolean status;
 
@@ -24,6 +25,8 @@ public class Mission {
     public String toString() {
         return "Mission{" +
                 "name='" + name + '\'' +
+                ", missionStartDate=" + missionStartDate +
+                ", missionEndDate=" + missionEndDate +
                 ", success='" + success + '\'' +
                 ", status=" + status +
                 '}';
