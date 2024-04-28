@@ -12,4 +12,9 @@ import java.util.List;
 public class AstronautService {
     private final AstronautRepository astronautRepository;
 
+    public List<Astronaut> saveAstronauts(List<Astronaut> astronauts ){
+     return astronautRepository.saveAll(astronauts);
+
+    }
+
 }
